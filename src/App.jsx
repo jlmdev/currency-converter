@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 function App() {
   const [currentRates, setCurrentRates] = useState({
@@ -40,7 +40,18 @@ function App() {
     },
     date: '2020-10-01',
   })
-  const [usd, setUSD] = useState(1)
+  const [usd, setUSD] = useState('1')
+
+  async function loadConversionRatesFromApi() {
+    const url = 'https://api.ratesapi.io/api/latest?base=USD'
+    const response = await fetch(url)
+    const json = await response.json()
+    console.log(json)
+  }
+
+  useEffect(() => {
+    loadConversionRatesFromApi()
+  }, [])
 
   return (
     <div className="container">
@@ -58,100 +69,100 @@ function App() {
 
       <ul className="list-group">
         <li className="list-group-item gbp">
-          GBP: {usd * currentRates.rates.GBP}
+          GBP: {(Number(usd) * currentRates.rates.GBP).toFixed(2)}
         </li>
         <li className="list-group-item hkd">
-          HKD: {usd * currentRates.rates.HKD}
+          HKD: {(Number(usd) * currentRates.rates.HKD).toFixed(2)}
         </li>
         <li className="list-group-item idr">
-          IDR: {usd * currentRates.rates.IDR}
+          IDR: {(Number(usd) * currentRates.rates.IDR).toFixed(2)}
         </li>
         <li className="list-group-item ils">
-          ILS: {usd * currentRates.rates.ILS}
+          ILS: {(Number(usd) * currentRates.rates.ILS).toFixed(2)}
         </li>
         <li className="list-group-item dkk">
-          DKK: {usd * currentRates.rates.DKK}
+          DKK: {(Number(usd) * currentRates.rates.DKK).toFixed(2)}
         </li>
         <li className="list-group-item inr">
-          INR: {usd * currentRates.rates.INR}
+          INR: {(Number(usd) * currentRates.rates.INR).toFixed(2)}
         </li>
         <li className="list-group-item chf">
-          CHF: {usd * currentRates.rates.CHF}
+          CHF: {(Number(usd) * currentRates.rates.CHF).toFixed(2)}
         </li>
         <li className="list-group-item mxn">
-          MXN: {usd * currentRates.rates.MXN}
+          MXN: {(Number(usd) * currentRates.rates.MXN).toFixed(2)}
         </li>
         <li className="list-group-item czk">
-          CZK: {usd * currentRates.rates.CZK}
+          CZK: {(Number(usd) * currentRates.rates.CZK).toFixed(2)}
         </li>
         <li className="list-group-item sgd">
-          SGD: {usd * currentRates.rates.SGD}
+          SGD: {(Number(usd) * currentRates.rates.SGD).toFixed(2)}
         </li>
         <li className="list-group-item thb">
-          THB: {usd * currentRates.rates.THB}
+          THB: {(Number(usd) * currentRates.rates.THB).toFixed(2)}
         </li>
         <li className="list-group-item hrk">
-          HRK: {usd * currentRates.rates.HRK}
+          HRK: {(Number(usd) * currentRates.rates.HRK).toFixed(2)}
         </li>
         <li className="list-group-item eur">
-          EUR: {usd * currentRates.rates.EUR}
+          EUR: {(Number(usd) * currentRates.rates.EUR).toFixed(2)}
         </li>
         <li className="list-group-item myr">
-          MYR: {usd * currentRates.rates.MYR}
+          MYR: {(Number(usd) * currentRates.rates.MYR).toFixed(2)}
         </li>
         <li className="list-group-item nok">
-          NOK: {usd * currentRates.rates.NOK}
+          NOK: {(Number(usd) * currentRates.rates.NOK).toFixed(2)}
         </li>
         <li className="list-group-item cny">
-          CNY: {usd * currentRates.rates.CNY}
+          CNY: {(Number(usd) * currentRates.rates.CNY).toFixed(2)}
         </li>
         <li className="list-group-item bgn">
-          BGN: {usd * currentRates.rates.BGN}
+          BGN: {(Number(usd) * currentRates.rates.BGN).toFixed(2)}
         </li>
         <li className="list-group-item php">
-          PHP: {usd * currentRates.rates.PHP}
+          PHP: {(Number(usd) * currentRates.rates.PHP).toFixed(2)}
         </li>
         <li className="list-group-item pln">
-          PLN: {usd * currentRates.rates.PLN}
+          PLN: {(Number(usd) * currentRates.rates.PLN).toFixed(2)}
         </li>
         <li className="list-group-item zar">
-          ZAR: {usd * currentRates.rates.ZAR}
+          ZAR: {(Number(usd) * currentRates.rates.ZAR).toFixed(2)}
         </li>
         <li className="list-group-item cad">
-          CAD: {usd * currentRates.rates.CAD}
+          CAD: {(Number(usd) * currentRates.rates.CAD).toFixed(2)}
         </li>
         <li className="list-group-item isk">
-          ISK: {usd * currentRates.rates.ISK}
+          ISK: {(Number(usd) * currentRates.rates.ISK).toFixed(2)}
         </li>
         <li className="list-group-item brl">
-          BRL: {usd * currentRates.rates.BRL}
+          BRL: {(Number(usd) * currentRates.rates.BRL).toFixed(2)}
         </li>
         <li className="list-group-item ron">
-          RON: {usd * currentRates.rates.RON}
+          RON: {(Number(usd) * currentRates.rates.RON).toFixed(2)}
         </li>
         <li className="list-group-item nzd">
-          NZD: {usd * currentRates.rates.NZD}
+          NZD: {(Number(usd) * currentRates.rates.NZD).toFixed(2)}
         </li>
         <li className="list-group-item try">
-          TRY: {usd * currentRates.rates.TRY}
+          TRY: {(Number(usd) * currentRates.rates.TRY).toFixed(2)}
         </li>
         <li className="list-group-item jpy">
-          JPY: {usd * currentRates.rates.JPY}
+          JPY: {(Number(usd) * currentRates.rates.JPY).toFixed(2)}
         </li>
         <li className="list-group-item rub">
-          RUB: {usd * currentRates.rates.RUB}
+          RUB: {(Number(usd) * currentRates.rates.RUB).toFixed(2)}
         </li>
         <li className="list-group-item krw">
-          KRW: {usd * currentRates.rates.KRW}
+          KRW: {(Number(usd) * currentRates.rates.KRW).toFixed(2)}
         </li>
         <li className="list-group-item aud">
-          AUD: {usd * currentRates.rates.AUD}
+          AUD: {(Number(usd) * currentRates.rates.AUD).toFixed(2)}
         </li>
         <li className="list-group-item huf">
-          HUF: {usd * currentRates.rates.HUF}
+          HUF: {(Number(usd) * currentRates.rates.HUF).toFixed(2)}
         </li>
         <li className="list-group-item sek">
-          SEK: {usd * currentRates.rates.SEK}
+          SEK: {(Number(usd) * currentRates.rates.SEK).toFixed(2)}
         </li>
       </ul>
     </div>
