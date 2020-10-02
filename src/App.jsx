@@ -46,7 +46,7 @@ function App() {
     const url = 'https://api.ratesapi.io/api/latest?base=USD'
     const response = await fetch(url)
     const json = await response.json()
-    console.log(json)
+    setCurrentRates(json)
   }
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function App() {
         <h1>Currency Converter</h1>
         <h4>{currentRates.date}</h4>
       </div>
-      <label htmlFor="usd-input">USD</label>
+      <label htmlFor="usd-input">USD Input</label>
       <input
         className="form-control usd-input"
         type="text"
@@ -68,6 +68,7 @@ function App() {
       />
 
       <ul className="list-group">
+        <li className="list-group-item gbp">USD: {Number(usd).toFixed(2)}</li>
         <li className="list-group-item gbp">
           GBP: {(Number(usd) * currentRates.rates.GBP).toFixed(2)}
         </li>
