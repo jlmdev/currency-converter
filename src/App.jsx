@@ -8,6 +8,9 @@ function App() {
       </div>
       <label htmlFor="usd-input">USD</label>
       <input className="form-control usd-input" type="text" placeholder="1" />
+      <button type="button" className="btn btn-primary update">
+        Update
+      </button>
       <ul className="list-group">
         <li className="list-group-item gbp">GBP:</li>
         <li className="list-group-item hkd">HKD:</li>
